@@ -1,0 +1,31 @@
+---
+###
+# Vim Customization
+#
+
+- name: Vim Customization | Clone repository
+  action: git repo=https://github.com/kporras07/.vim.git dest=/home/vagrant/.vim
+
+- name: Vim Submodule init | Submodule init
+  action: shell chdir=/home/vagrant/.vim && git submodule init
+
+- name: Vim Submodule update | Submodule update
+  action: shell chdir=/home/vagrant/.vim && git submodule update
+
+- name: Vimrc | Create symlink in /home/vagrant/.vimrc
+  action: shell creates=/home/vagrant/.vimrc ln -s /home/vagrant/.vim/vimrc /home/vagrant/.vimrc
+
+- name: CodeSniffer | Composer global require
+  action: shell composer global require drupal/coder:\>7
+
+- name: CodeSniffer | Install PHP_Codesniffer
+  action: shell pear install PHP_CodeSniffer creates=/usr/share/php/PHP/CodeSniffer/
+
+- name: CodeSniffer | Download drupalcs module
+  action: shell chdir=/home/vagrant wget http://ftp.drupal.org/files/projects/coder-7.x-2.2.tar.gz creates=/home/vagrant/coder-7.x-2.2.tar.gz
+
+- name: CodeSniffer | Extract drupalcs module
+  action: shell chdir=/home/vagrant tar xzf coder-7.x-2.2.tar.gz creates=/home/vagrant/coder
+
+- name: CodeSniffer | CS copy standard
+  action: shell cp -r /home/vagrant/coder/coder_sniffer/Drupal/ /usr/share/php/PHP/CodeSniffer/Standards/

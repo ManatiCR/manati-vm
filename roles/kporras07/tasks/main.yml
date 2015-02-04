@@ -1,0 +1,4 @@
+---
+# The playbook for local vagrant tasks
+
+- include: kporras07.yml tags=kporras07

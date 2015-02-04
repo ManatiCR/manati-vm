@@ -1,0 +1,24 @@
+---
+##
+# Message of the day configuration.
+#
+- name: General | Message of the day logo script.
+  action: copy src=etc/update-motd.d/05-splash dest=/etc/update-motd.d/05-splash mode=755
+
+- name: General | Message of the day text logo script.
+  action: copy src=etc/update-motd.d/20-splashtext dest=/etc/update-motd.d/20-splashtext mode=755
+
+- name: General | Message of the day logo file.
+  action: copy src=etc/update-motd.d/manati-terminal-logo dest=/etc/update-motd.d/manati-terminal-logo mode=644
+
+- name: General | Message of the day text logo file.
+  action: copy src=etc/update-motd.d/manati-terminal-text dest=/etc/update-motd.d/manati-terminal-text mode=644
+
+- name: General | Disable default motd scripts.
+  action: file path=/etc/update-motd.d/00-header mode=444
+
+- name: General | Disable default motd scripts.
+  action: file path=/etc/update-motd.d/10-help-text mode=444
+
+- name: General | Disable default motd scripts.
+  action: file path=/etc/update-motd.d/50-landscape-sysinfo state=absent

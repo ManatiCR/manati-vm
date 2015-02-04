@@ -1,0 +1,16 @@
+---
+# The main playbook to deploy the site
+
+- hosts: all
+  sudo: yes
+  roles:
+   - common
+   - cache
+   - db
+#   - search
+   - web
+- hosts: local
+  sudo: yes
+  roles:
+#    - local
+    - kporras07

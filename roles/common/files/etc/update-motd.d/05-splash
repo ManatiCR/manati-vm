@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+
+cat /etc/update-motd.d/manati-terminal-logo

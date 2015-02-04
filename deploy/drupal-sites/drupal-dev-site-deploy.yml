@@ -1,0 +1,36 @@
+---
+##
+# Create a new dev Drupal site on the server.
+#
+# repo: The github repository
+#   eg: git@github.com:fourkitchens/trainingwheels-drupal-files-example.git
+# site_name: The machine name of the site.
+#  eg: client1
+# user_name: The user for whom the site is created.
+# db_name: The name of the database to create.
+# db_user: The username of the db user.
+# db_pass: The password of the db user.
+#
+- hosts: localhost
+  connection: local
+  user: root
+  vars_files:
+    - ../../vagrant/provision/site_vars
+
+  tasks:
+
+    - name: Simple test to make sure the user exists
+      action: command test -d /home/{{ user_name }} creates=/home/{{ user_name }}
+
+    - name: Checkout the git repo
+      action: git repo={{ repo }} dest=/home/{{ user_name }}/www/{{ site_name }} version=master
+
+    - name: Let current user own the repo.
+      action: file owner={{ user_name }} path=/home/{{ user_name }}/www/{{ site_name }} recurse=yes
+#      action: "command sudo chown -R {{ user_name }}: /home/{{ user_name }}/www/{{ site_name }}"
+
+    - name: Create MySQL db
+      action: mysql_db name={{ db_name }}
+
+    - name: Create MySQL user
+      action: mysql_user name={{ db_user }} password={{ db_pass }} priv={{ db_name }}.*:ALL/*.*:SELECT

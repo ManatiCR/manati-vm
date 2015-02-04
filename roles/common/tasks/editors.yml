@@ -1,0 +1,10 @@
+---
+##
+# Install preferred editors
+#
+- name: Editors | Install Vim
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - vim-nox
+    - vim-scripts
+    - vim-common
