@@ -3,7 +3,7 @@
 # Apache2 setup.
 #
 - name: Apache | Add Apache 2.4 PPA
-  apt_repository: repo='ppa:ondrej/apache2'
+  apt_repository: repo='ppa:ondrej/apache2' validate_certs=no
 
 - name: Apache | Update apt cache
   action: apt update_cache=yes

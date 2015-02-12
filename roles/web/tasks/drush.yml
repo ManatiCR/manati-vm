@@ -8,24 +8,16 @@
   register: drush_check
   ignore_errors: True
 
-- name: Drush | Install PHP PEAR
-  apt: pkg=php-pear state=installed
+- name: Drush | Clone Repo
+  action: git repo=https://github.com/drush-ops/drush.git dest=/usr/share/drush
   when: drush_check|failed
 
-- name: Drush | Update PEAR
-  command: pear upgrade-all
+- name: Drush | Run composer install
+  composer: working_dir=/usr/share/drush command=install
   when: drush_check|failed
 
-- name: Drush | Setup PEAR channel
-  command: pear channel-discover pear.drush.org creates=/usr/share/php/.channels/pear.drush.org.reg
-  when: drush_check|failed
-
-- name: Drush | Install drush
-  command: pear install drush/drush
-  when: drush_check|failed
-
-- name: Drush | Run drush once so it downloads its dependencies
-  command: drush
+- name: Drush | Symlink
+  action: file src=/usr/share/drush/drush dest=/usr/bin/drush state=link
   when: drush_check|failed
 
 - name: Drush | Create a folder to hold site aliases
