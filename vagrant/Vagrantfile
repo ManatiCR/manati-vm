@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
     dev_config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "2"]
+      vb.customize ["modifyvm", :id, "--name", "Manati Box"]
     end
 
     # Shared folders through NFS. This is supported in Mac and Linux. Windows may have
