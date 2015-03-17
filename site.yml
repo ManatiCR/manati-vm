@@ -7,10 +7,10 @@
    - common
    - cache
    - db
-#   - search
+   - search
    - web
 - hosts: local
   sudo: yes
   roles:
-#    - local
+    - local
     - kporras07
