@@ -1,0 +1,7 @@
+#! /bin/bash
+if [ $# -eq 0 ]; then
+    echo "Provide a path to a playbook such as 'deploy/users/user-add.yml'"
+else
+    export ANSIBLE_HOST_KEY_CHECKING=False
+    ansible-playbook -i vagrant/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory --private-key=vagrant/.vagrant/machines/dev/virtualbox/private_key -u vagrant $1
+fi
