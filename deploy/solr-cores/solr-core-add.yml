@@ -4,9 +4,11 @@
 #
 # core_name: The core name.
 #
-- hosts: localhost
-  connection: local
-  user: root
+- hosts: all
+  sudo: yes
+
+  vars_prompt:
+    core_name: "Core name?"
 
   tasks:
 
