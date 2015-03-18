@@ -7,10 +7,10 @@
   action: git repo=https://github.com/kporras07/.vim.git dest=/home/vagrant/.vim
 
 - name: Vim Submodule init | Submodule init
-  action: shell chdir=/home/vagrant/.vim && git submodule init
+  action: shell cd /home/vagrant/.vim git submodule init
 
 - name: Vim Submodule update | Submodule update
-  action: shell chdir=/home/vagrant/.vim && git submodule update
+  action: shell chdir=/home/vagrant/.vim git submodule update
 
 - name: Vimrc | Create symlink in /home/vagrant/.vimrc
   action: shell creates=/home/vagrant/.vimrc ln -s /home/vagrant/.vim/vimrc /home/vagrant/.vimrc

@@ -3,7 +3,6 @@
 # Create a new dev Drupal site on the server.
 #
 # repo: The github repository
-#   eg: git@github.com:fourkitchens/trainingwheels-drupal-files-example.git
 # site_name: The machine name of the site.
 #  eg: client1
 # user_name: The user for whom the site is created.
