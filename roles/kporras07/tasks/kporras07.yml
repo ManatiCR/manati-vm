@@ -29,3 +29,8 @@
 
 - name: CodeSniffer | CS copy standard
   action: shell cp -r /home/vagrant/coder/coder_sniffer/Drupal/ /usr/share/php/PHP/CodeSniffer/Standards/
+
+- name: CodeSniffer | Cleanup
+  file: path={{ item }} state=absent
+  with_items:
+    - /home/vagrant/coder-7.x-2.2.tar.gz
