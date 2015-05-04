@@ -4,7 +4,7 @@
 #
 
 - name: Vim Customization | Clone repository
-  action: git repo=https://github.com/kporras07/.vim.git dest=/home/vagrant/.vim
+  action: git repo=https://github.com/kporras07/.vim.git dest=/home/vagrant/.vim accept_hostkey=yes
 
 - name: Vim Submodule init | Submodule init
   action: shell cd /home/vagrant/.vim git submodule init
