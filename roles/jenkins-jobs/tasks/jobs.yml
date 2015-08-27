@@ -1,0 +1,6 @@
+---
+####
+# Jenkins Jobs
+#
+- name: Jenkins | Copy jobs
+  action: copy src=jobs/ dest=/var/lib/jenkins/jobs/
