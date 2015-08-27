@@ -36,5 +36,8 @@ local_key: 1
 server_hostname: 'local.dev'
 github_playbooks: 0
 skip_server_auth: true
+jenkins_plugins:
+  - git
+  - ssh
 
 jenkins_hostname: utility.jenkins.com
