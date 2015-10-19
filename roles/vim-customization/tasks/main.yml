@@ -1,4 +1,4 @@
 ---
-# The playbook for local vagrant tasks
+# The playbook for vim customization tasks
 
 - include: vim-customization.yml tags=vim-customization
