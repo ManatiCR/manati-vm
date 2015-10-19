@@ -1,0 +1,12 @@
+---
+# The main playbook to deploy the site
+
+- hosts: all
+  sudo: yes
+  roles:
+   - common
+   - cache
+   - db
+   - search
+   - web
+   - vim-customization

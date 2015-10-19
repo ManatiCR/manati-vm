@@ -5,14 +5,17 @@
 - name: Node.js | Package prerequisites for node.js
   action: apt pkg=python-software-properties state=installed
 
-- name: Node.js | Add the node.js PPA
-  apt_repository: repo='ppa:chris-lea/node.js'
+- name: Node.js | Add the Repo Key.
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
+- name: Node.js | Add the Repo
+  apt_repository: repo='deb https://deb.nodesource.com/node_4.x trusty main' state=present
 
 - name: Node.js | Update the apt cache for the new repository
   action: apt update-cache=yes
 
 - name: Node.js | Install nodejs and npm
-  action: apt pkg=nodejs state=installed
+  action: apt pkg=nodejs state=latest
 
 - name: Node.js | Install required npm packages
-  action: command npm install -g bower coffee-script grunt-cli jshint
+  action: command npm install -g bower grunt-cli jshint yo

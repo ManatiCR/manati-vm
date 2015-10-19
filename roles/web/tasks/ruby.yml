@@ -10,5 +10,3 @@
   action: gem name={{ item }} state=latest
   with_items:
     - bundler
-#    - github-pages This cannot be added until we have ruby 1.9.3
-

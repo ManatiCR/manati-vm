@@ -23,3 +23,11 @@
 - name: Drush | Create a folder to hold site aliases
   file: path=/etc/drush state=directory
   when: drush_check|failed
+
+- name: Drush | Update Repo
+  action: git repo=https://github.com/drush-ops/drush.git dest=/usr/share/drush update=yes
+  when: not drush_check
+
+- name: Drush | Run composer install
+  composer: working_dir=/usr/share/drush command=update
+  when: not drush_check
