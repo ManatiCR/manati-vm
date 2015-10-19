@@ -1,0 +1,19 @@
+---
+##
+# Disable varnish.
+#
+# Set pass for every request.
+#
+- hosts: all
+  sudo: yes
+
+  tasks:
+
+    - name: Varnish disable | Backup actual config file.
+      action: command cp /etc/varnish/default.vcl /etc/varnish/default.$(date +%F_%R).vcl
+
+    - name: Varnish disable | Copy the disabled file to actual file.
+      action: cp /etc/varnish/default.vcl.disabled /etc/varnish/default.vcl
+
+    - name: Varnish disable | Restart service.
+      action: service name=tomcat6 state=restarted

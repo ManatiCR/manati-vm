@@ -20,10 +20,13 @@
 - name: Install Varnish
   apt: name=varnish state=present
 
+- name: Varnish | Copy configuration file (enabled)
+  template: src=etc/varnish/default.vcl.j2 dest=/etc/varnish/default.vcl.enabled
+
 - name: Varnish | Copy configuration file (disabled)
   template: src=etc/varnish/default.vcl.disabled.j2 dest=/etc/varnish/default.vcl.disabled
 
-- name: Varnish | Copy configuration file
+- name: Varnish | Copy configuration file (default)
   template: src=etc/varnish/default.vcl.j2 dest=/etc/varnish/default.vcl
   notify:
     - restart varnish
