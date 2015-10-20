@@ -9,11 +9,15 @@
 
   tasks:
 
-    - name: Varnish disable | Backup actual config file.
-      action: command cp /etc/varnish/default.vcl /etc/varnish/default.$(date +%F_%R).vcl
-
     - name: Varnish disable | Copy the disabled file to actual file.
-      action: cp /etc/varnish/default.vcl.disabled /etc/varnish/default.vcl
+      action: command cp /etc/varnish/default.vcl.disabled /etc/varnish/default.vcl
 
     - name: Varnish disable | Restart service.
       action: service name=tomcat6 state=restarted
+
+    - name: Varnish disable | Add changes to etckeeper git.
+      action: command git add . chdir=/etc/varnish
+
+    - name: Varnish disable | Commit changes to etckeeper git.
+      action: command git commit -m "Disabled varnish" chdir=/etc/varnish
+
