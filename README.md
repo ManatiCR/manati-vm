@@ -70,6 +70,7 @@ For running a deploy script:
     
 Actually, you could use these scripts:
  - Add DB and User in MySQL (mysql/mysql-add-db-and-user.yml)
+ - Import DB (mysql/mysql-db-import.yml)
  - Solr Core Add (solr-cores/solr-core-add.yml)
  - Solr Core Delete (solr-cores/solr-core-delete.yml)
  - Varnish Disable (varnish/varnish-disable.yml)
