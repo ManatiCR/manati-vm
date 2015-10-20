@@ -36,3 +36,4 @@ Actually, you could use these scripts:
  - Solr Core Delete (solr-cores/solr-core-delete.yml)
  - Varnish Disable (varnish/varnish-disable.yml)
  - Varnish Enable (varnish/varnish-enable.yml)
+ - Install aquifer (aquifer/install-aquifer.yml)
