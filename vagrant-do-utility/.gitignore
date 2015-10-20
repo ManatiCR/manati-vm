@@ -1,0 +1,6 @@
+#.gitignore
+provision/*_vars
+npm-debug.log
+.vagrant/
+*/.vagrant/
+config.yaml

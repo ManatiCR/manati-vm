@@ -1,0 +1,8 @@
+---
+# Example config variables file.
+# Copy this to config.yml and override desired values.
+
+configs:
+    provider:
+        token: 'blah'
+        ssh_key_name: 'blah'
