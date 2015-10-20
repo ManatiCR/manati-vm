@@ -16,7 +16,7 @@
   shell: cd /tmp && tar xzf /tmp/ImageMagick.tar.gz
 
 - name: Imagemagick | Build and Install
-  shell: chdir=/tmp/ImageMagick-6.9.0-4 creates=/usr/local/bin/convert ./configure '--with-png=yes' '--with-jpeg=yes' '--with-jp2=yes' '--with-freetype=yes' && make && make install
+  shell: chdir=/tmp/ImageMagick-6.9.2-4 creates=/usr/local/bin/convert ./configure '--with-png=yes' '--with-jpeg=yes' '--with-jp2=yes' '--with-freetype=yes' && make && make install
 
 - name: Imagemagick | Reload libraries
   shell: ldconfig /usr/local/lib
@@ -25,4 +25,4 @@
   file: path={{ item }} state=absent
   with_items:
     - /tmp/ImageMagick.tar.gz
-    - /tmp/ImageMagick-6.9.0-4
+    - /tmp/ImageMagick-6.9.2-4

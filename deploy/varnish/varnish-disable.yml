@@ -1,0 +1,23 @@
+---
+##
+# Disable varnish.
+#
+# Set pass for every request.
+#
+- hosts: all
+  sudo: yes
+
+  tasks:
+
+    - name: Varnish disable | Copy the disabled file to actual file.
+      action: command cp /etc/varnish/default.vcl.disabled /etc/varnish/default.vcl
+
+    - name: Varnish disable | Restart service.
+      action: service name=tomcat6 state=restarted
+
+    - name: Varnish disable | Add changes to etckeeper git.
+      action: command git add . chdir=/etc/varnish
+
+    - name: Varnish disable | Commit changes to etckeeper git.
+      action: command git commit -m "Disabled varnish" chdir=/etc/varnish
+

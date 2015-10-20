@@ -2,12 +2,6 @@
 ####
 # PHP
 #
-- name: PHP | Add PHP 5.5 PPA
-  apt_repository: repo='ppa:ondrej/php5'
-
-- name: PHP | Update apt cache
-  action: apt update_cache=yes
-
 - name: PHP | Install required packages.
   action: apt pkg={{ item }} state=installed
   with_items:

@@ -3,12 +3,7 @@
 # Ruby tools
 #
 
-- name: Ruby | Install rubygems
-  action: apt pkg=rubygems state=installed
-
-- name: Ruby | Install Sass and all ruby gems
+- name: Ruby | Install Bundler
   action: gem name={{ item }} state=latest
   with_items:
     - bundler
-#    - github-pages This cannot be added until we have ruby 1.9.3
-

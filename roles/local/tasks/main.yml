@@ -1,4 +1,0 @@
----
-# The playbook for local vagrant tasks
-
-- include: boris.yml tags=boris

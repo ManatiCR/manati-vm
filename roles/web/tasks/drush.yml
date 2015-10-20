@@ -5,21 +5,29 @@
 
 - name: Drush | Check if Drush is installed.
   shell: /usr/bin/drush
-  register: drush_check
+  register: drush_exists
   ignore_errors: True
 
 - name: Drush | Clone Repo
   action: git repo=https://github.com/drush-ops/drush.git dest=/usr/share/drush
-  when: drush_check|failed
+  when: drush_exists|failed
 
 - name: Drush | Run composer install
   composer: working_dir=/usr/share/drush command=install
-  when: drush_check|failed
+  when: drush_exists|failed
 
 - name: Drush | Symlink
   action: file src=/usr/share/drush/drush dest=/usr/bin/drush state=link
-  when: drush_check|failed
+  when: drush_exists|failed
 
 - name: Drush | Create a folder to hold site aliases
   file: path=/etc/drush state=directory
-  when: drush_check|failed
+  when: drush_exists|failed
+
+- name: Drush | Update Repo
+  action: git repo=https://github.com/drush-ops/drush.git dest=/usr/share/drush update=yes
+  when: drush_exists
+
+- name: Drush | Run composer update
+  composer: working_dir=/usr/share/drush command=update
+  when: drush_exists

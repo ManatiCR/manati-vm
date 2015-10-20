@@ -9,9 +9,15 @@
   sudo: yes
 
   vars_prompt:
-    db_name: "DB name?"
-    db_user: "DB User?"
-    db_pass: "DB Pass?"
+    - name: db_name
+      prompt: "Name of database to create?"
+      private: no
+    - name: db_user
+      prompt: "Name of user to create?"
+      private: no
+    - name: db_pass
+      prompt: "Pass of user?"
+      private: yes
 
   tasks:
 
