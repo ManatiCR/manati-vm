@@ -7,7 +7,7 @@ For bringing up a simple vm that can be used for PHP development; just run the n
 
     vagrant up
 
-Actually this is deploying a ubuntu trusty VM.
+Actually this is deploying a ubuntu trusty (14.04) VM.
 
 This config creates a VM with this software:
  - vim (with some customizations)
