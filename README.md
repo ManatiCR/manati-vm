@@ -3,9 +3,30 @@ Manatí vagrant-playbooks
 
 Contains some scripts and config files used for different deploys using vagrant+ansible playbooks.
 
+# Requirements
+ * Virtualbox
+ * Vagrant (It's recommended to install directly from official page)
+ * Ansible (It's recommended to install directly from official page)
+
 For bringing up a simple vm that can be used for PHP development; just run the next command inside root folder:
 
     vagrant up
+    
+If you need to provision again, just run:
+
+    vagrant provision
+    
+For ssh into the vm:
+
+    vagrant ssh
+
+For restarting vm:
+
+    vagrant reload
+    
+For using this vm, you just need to add a folder inside www (created at same level than root folder) and add your code there. Then add a dns record in /etc/hosts for associating {your-folder-name}.local.dev with the vm IP (10.10.10.10). Example:
+
+    example.local.dev  10.10.10.10
 
 Actually this is deploying a ubuntu trusty (14.04) VM.
 
