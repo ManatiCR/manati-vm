@@ -32,6 +32,9 @@ To use this VM, you just need to add a folder inside www (created at same level 
 ## Other features
 This VM is shipped with apachesolr 3.6.2 (see instructions in next section), two webservers (apache and nginx), xhprof, xdebug and some other undocumented stuff.
 
+In order to create a database, the VM installs mysql. With user: root, and password: password.
+This values can be changed with the variable "mysql_root_password" in group_vars/dev_vm
+
 ### Apachesolr use
 To create a core, just use the solr-core-add.yml script (See Running Deploy Scripts). Your new solr core admin UI is available at (http://hostname.local.dev:8888/solr/core_name/admin) and it could be used by Drupal at (http://hostname.local.dev:8888/solr/core_name)
 
