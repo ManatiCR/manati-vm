@@ -61,7 +61,7 @@ TIP: You can use the Chrome extension ModHeader to send headers and avoid needin
 
 Some configurations are managed by variables. You can find and change them in `/group_vars/dev_vm`
 
-## Installed Softwared
+## Installed Software
 
 Right now this is deploying an Ubuntu Trusty (14.04) VM.
 
