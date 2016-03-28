@@ -1,4 +1,4 @@
-Manatí vagrant-playbooks
+Manatí VM
 ========================
 
 This is a VM that contains some scripts and config files used for different deploys using vagrant+ansible playbooks.
