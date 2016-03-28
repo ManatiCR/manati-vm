@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Manatí vagrant-playbooks
 ========================
 
@@ -29,7 +30,7 @@ To restart the VM:
 
 To use this VM, you just need to add a folder inside www (created at same level than root folder) and add your code there. Then, add a dns record in /etc/hosts for associating your_folder_name.local.dev with the VM IP (10.10.10.10). Example:
 
-    example.local.dev  10.10.10.10
+    10.10.10.10  example.local.dev
 
 ## Other features
 
@@ -95,3 +96,10 @@ You can use these scripts (located in the folder "deploy"):
  - Varnish Disable (varnish/varnish-disable.yml)
  - Varnish Enable (varnish/varnish-enable.yml)
  - Install aquifer (aquifer/install-aquifer.yml)
+=======
+# vagrant-playbooks
+
+Legacy repo name for actual manati-vm
+
+For actual repo, go to [manati-vm](https://github.com/ManatiCR/manati-vm)
+>>>>>>> 98c330a9e21d8f6f78fd0fceae2dc74dd8925b8b
