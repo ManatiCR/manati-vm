@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-Manatí vagrant-playbooks
+Manatí VM
 ========================
 
 This is a VM that contains some scripts and config files used for different deploys using vagrant+ansible playbooks.
@@ -96,10 +95,3 @@ You can use these scripts (located in the folder "deploy"):
  - Varnish Disable (varnish/varnish-disable.yml)
  - Varnish Enable (varnish/varnish-enable.yml)
  - Install aquifer (aquifer/install-aquifer.yml)
-=======
-# vagrant-playbooks
-
-Legacy repo name for actual manati-vm
-
-For actual repo, go to [manati-vm](https://github.com/ManatiCR/manati-vm)
->>>>>>> 98c330a9e21d8f6f78fd0fceae2dc74dd8925b8b
