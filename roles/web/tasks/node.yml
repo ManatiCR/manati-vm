@@ -16,6 +16,3 @@
 
 - name: Node.js | Install nodejs and npm
   action: apt pkg=nodejs state=latest
-
-- name: Node.js | Install required npm packages
-  action: command npm install -g bower grunt-cli jshint yo
