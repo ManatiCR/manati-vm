@@ -6,7 +6,7 @@
 # db_pass: The password of the db user.
 #
 - hosts: all
-  sudo: yes
+  become: yes
 
   vars_prompt:
     - name: db_name

@@ -2,7 +2,7 @@
 # The main playbook to deploy the site
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
    - common
    - ansible

@@ -5,7 +5,7 @@
 # Set pass for every request.
 #
 - hosts: all
-  sudo: yes
+  become: yes
 
   tasks:
 
