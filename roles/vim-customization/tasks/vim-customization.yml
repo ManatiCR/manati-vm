@@ -18,7 +18,7 @@
 - name: CodeSniffer | Download drupalcs module
   action: get_url url=http://ftp.drupal.org/files/projects/coder-7.x-2.2.tar.gz dest=/home/vagrant/coder-7.x-2.2.tar.gz
 - name: CodeSniffer | Extract drupalcs module
-  action: shell chdir=/home/vagrant tar xzf coder-7.x-2.2.tar.gz creates=/home/vagrant/coder
+  action: unarchive src=/home/vagrant/coder-7.x-2.2.tar.gz dest=/home/vagrant copy=no
 
 - name: CodeSniffer | CS copy standard
   action: shell cp -r /home/vagrant/coder/coder_sniffer/Drupal/ /usr/share/php/PHP/CodeSniffer/Standards/
