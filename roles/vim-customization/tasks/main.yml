@@ -1,4 +1,4 @@
 ---
 # The playbook for vim customization tasks
 
-- include: vim-customization.yml tags=vim-customization
+- include: vim-customization.yml

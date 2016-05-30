@@ -2,7 +2,7 @@
 # target: Database dump file, must be located in www folder.
 #
 - hosts: all
-  sudo: yes
+  become: yes
 
   vars_prompt:
     - name: db_name

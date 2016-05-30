@@ -125,6 +125,5 @@
     creates=/tmp/composer.phar
 
 - name: copy composer in place
-  sudo: true
   command: /bin/cp /tmp/composer.phar /usr/local/bin/composer
     creates=/usr/local/bin/composer

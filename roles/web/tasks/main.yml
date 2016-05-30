@@ -2,17 +2,17 @@
 # The playbook for tasks related to webservers.
 
 # Webservers
-- include: apache.yml tags=apache
-- include: nginx.yml tags=nginx
+- include: apache.yml
+#- include: nginx.yml
 
 # Load balancers/ proxies
-- include: varnish.yml tags=varnish
+- include: varnish.yml
 
 # Languages/ frameworks
-- include: node.yml tags=node
-- include: php.yml tags=php
-- include: ruby.yml tags=ruby
+- include: node.yml
+- include: php.yml
+- include: ruby.yml
 
 # Tools
-- include: drush.yml tags=drush
-- include: imagemagick.yml tags=imagemagick
+- include: drush.yml
+- include: imagemagick.yml

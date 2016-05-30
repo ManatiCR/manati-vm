@@ -5,7 +5,7 @@
 # core_name: The core name.
 #
 - hosts: all
-  sudo: yes
+  become: yes
 
   vars_prompt:
     core_name: "Core name?"

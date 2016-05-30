@@ -1,4 +1,4 @@
 ---
 # Playbooks related to cache servers.
 
-- include: memcache.yml tags=memcache
+- include: memcache.yml
