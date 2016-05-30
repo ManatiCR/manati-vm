@@ -3,7 +3,7 @@
 
 # Webservers
 - include: apache.yml tags=apache
-- include: nginx.yml tags=nginx
+#- include: nginx.yml tags=nginx
 
 # Load balancers/ proxies
 - include: varnish.yml tags=varnish
