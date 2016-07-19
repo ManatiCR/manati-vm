@@ -42,7 +42,7 @@ This machine uses NFS file sharing in order to share a folder that will have the
 
 ![Earth explode](http://www.contentthatworks.com/blogs/Pauls/wp-content/uploads/2013/05/earth-exploding-o.gif "Earth explode")
 
-And there is no workarround for that. As per:
+And there is no workaround for that. As per:
 
 https://docs.vagrantup.com/v2/synced-folders/nfs.html
 
