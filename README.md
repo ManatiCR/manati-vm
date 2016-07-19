@@ -38,7 +38,7 @@ This VM is shipped with apachesolr 3.6.2 (see instructions in next section), two
 In order to create a database, the VM installs mysql. With user: root, and password: password.
 This values can be changed with the variable "mysql_root_password" in group_vars/dev_vm
 
-This machine uses NFS file sharing in order to share a folder that will have the sites (/www). If you have an encrypted home folder, NFS will most likely make your computer explode and swallow the earth unless you are using Full Disk Encryption.
+This machine uses NFS file sharing in order to share a folder that will have the sites (/www). If you have an encrypted home folder, NFS will most likely make your computer explode and make the earth explode.
 
 ![Earth explode](http://www.contentthatworks.com/blogs/Pauls/wp-content/uploads/2013/05/earth-exploding-o.gif "Earth explode")
 
@@ -46,7 +46,7 @@ And there is no workaround for that. As per:
 
 https://docs.vagrantup.com/v2/synced-folders/nfs.html
 
-Therefore, it is advised to clone this repository in an unencrypted folder.
+Therefore, it is advised to clone this repository in an unencrypted folder or if you're using Full Disk Encryption, your ok.
 
 ### Apachesolr use
 
