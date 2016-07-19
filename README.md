@@ -11,7 +11,7 @@ This is a VM that contains some scripts and config files used for different depl
 
 ## Basic Usage
 
-To bring up a simple VM (Virtual Machine) that can be used for PHP development, run the next command inside the root folder:
+To bring up a simple VM (Virtual Machine) that can be used for PHP developmenet, run the next command inside the root folder:
 
     vagrant up
 
@@ -38,7 +38,7 @@ This VM is shipped with apachesolr 3.6.2 (see instructions in next section), two
 In order to create a database, the VM installs mysql. With user: root, and password: password.
 This values can be changed with the variable "mysql_root_password" in group_vars/dev_vm
 
-This machine uses NFS file sharing in order to share a folder that will have the sites (/www). If you have an encrypted home folder, NFS will most likely make your computer explode and make the earth explode.
+This machine uses NFS file sharing in order to share a folder that will have the sites (/www). If you have an encrypted home folder, NFS will most likely make your computer kabum and the earth explode.
 
 ![Earth explode](http://www.contentthatworks.com/blogs/Pauls/wp-content/uploads/2013/05/earth-exploding-o.gif "Earth explode")
 
