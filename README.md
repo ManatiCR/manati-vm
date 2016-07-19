@@ -94,4 +94,3 @@ You can use these scripts (located in the folder "deploy"):
  - Solr Core Delete (solr-cores/solr-core-delete.yml)
  - Varnish Disable (varnish/varnish-disable.yml)
  - Varnish Enable (varnish/varnish-enable.yml)
- - Install aquifer (aquifer/install-aquifer.yml)
