@@ -8,6 +8,7 @@ This is a VM that contains some scripts and config files used for different depl
  * Virtualbox
  * Vagrant (It's recommended to install directly from official page)
  * Ansible (It's recommended to install directly from official page)
+ * NFS (It's installed by default in Mac, in Linux, you should install a package named `nfs-kernel-server`)
 
 ## Basic Usage
 
