@@ -3,16 +3,13 @@
 
 # Webservers
 - include: apache.yml
-#- include: nginx.yml
 
 # Load balancers/ proxies
 - include: varnish.yml
   when: varnish_enable
 
 # Languages/ frameworks
-- include: node.yml
 - include: php.yml
-- include: ruby.yml
 
 # Tools
 - include: drush.yml

@@ -9,7 +9,7 @@
   ignore_errors: True
 
 - name: Drush | Clone Repo
-  action: git repo=https://github.com/drush-ops/drush.git dest=/usr/share/drush
+  action: git repo=https://github.com/drush-ops/drush.git version=8.1.3 dest=/usr/share/drush
   when: drush_exists|failed
 
 - name: Drush | Run composer install
@@ -23,10 +23,6 @@
 - name: Drush | Create a folder to hold site aliases
   file: path=/etc/drush state=directory
   when: drush_exists|failed
-
-- name: Drush | Update Repo
-  action: git repo=https://github.com/drush-ops/drush.git dest=/usr/share/drush update=yes
-  when: drush_exists
 
 - name: Drush | Run composer update
   composer: working_dir=/usr/share/drush command=update
