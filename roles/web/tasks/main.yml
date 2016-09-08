@@ -7,6 +7,7 @@
 
 # Load balancers/ proxies
 - include: varnish.yml
+  when: varnish_enable
 
 # Languages/ frameworks
 - include: node.yml

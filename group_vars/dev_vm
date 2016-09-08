@@ -37,3 +37,7 @@ local_key: 1
 server_hostname: 'local.dev'
 github_playbooks: 0
 skip_server_auth: true
+
+# Varnish Disable
+varnish_enable: false
+apache_port: 80
