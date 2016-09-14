@@ -42,7 +42,7 @@
   notify:
     - restart tomcat
 
-  name: SOLR | copying drupal module config files solrconfig
+- name: SOLR | copying drupal module config files solrconfig
   action: copy src=usr/share/tomcat6/solr/conf/protwords.txt dest=/usr/share/tomcat6/solr/conf/protwords.txt
   notify:
     - restart tomcat
