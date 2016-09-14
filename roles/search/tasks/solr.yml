@@ -5,11 +5,8 @@
 - name: SOLR | Create webapps directory for SOLR
   action: file path=/usr/share/tomcat6/webapps state=directory owner=tomcat6 group=tomcat6 mode=700
 
-- name: SOLR | Get Apache SOLR version 3.6.2 for Drupal 3.x config.
-  action: copy src=tmp/solr.tgz dest=/tmp/solr.tgz
-
 - name: SOLR | Untar SOLR - contains minimum amount of files needed.
-  action: unarchive src=/tmp/solr.tgz  dest=/tmp/
+  action: unarchive src=tmp/solr.tgz  dest=/tmp/ remote_src=no
 
 - name: SOLR | Copy war to tomcat
   action: copy src=usr/share/tomcat6/webapps/solr.war dest=/usr/share/tomcat6/webapps/solr.war
