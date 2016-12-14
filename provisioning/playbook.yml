@@ -18,7 +18,6 @@
     - geerlingguy.nginx
     - geerlingguy.mysql
     - geerlingguy.php
-    - geerlingguy.php-pecl
     - geerlingguy.php-mysql
     - geerlingguy.composer
     - geerlingguy.drush
