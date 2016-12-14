@@ -1,3 +1,0 @@
-# Ansible provided robots.txt which prevents search engines from spidering dev sites.
-User-agent: *
-Disallow: /

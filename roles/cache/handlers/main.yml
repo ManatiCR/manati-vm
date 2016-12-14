@@ -1,3 +1,0 @@
----
-- name: restart memcache
-  action: service name=memcached state=restarted

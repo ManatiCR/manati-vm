@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
       type: "nfs", create: true
 
     dev_config.vm.provision "ansible" do |ansible|
-      ansible.playbook = "./playbooks.yml"
-      ansible.extra_vars = "./vars.yml"
+      ansible.playbook = "./provisioning/playbook.yml"
+      ansible.extra_vars = "./provisioning/vars.yml"
     end
   end
 end

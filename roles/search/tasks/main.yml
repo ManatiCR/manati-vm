@@ -1,5 +1,0 @@
----
-# Playbooks related to search servers
-
-- include: tomcat.yml
-- include: solr.yml

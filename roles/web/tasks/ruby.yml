@@ -1,9 +1,0 @@
----
-##
-# Ruby tools
-#
-
-- name: Ruby | Install Bundler
-  action: gem name={{ item }} state=latest
-  with_items:
-    - bundler

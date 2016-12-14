@@ -1,0 +1,14 @@
+---
+- src: geerlingguy.git
+- src: geerlingguy.apache
+- src: geerlingguy.apache-php-fpm
+- src: geerlingguy.nginx
+- src: geerlingguy.mysql
+- src: geerlingguy.php
+- src: geerlingguy.php-pecl
+- src: geerlingguy.php-mysql
+- src: geerlingguy.composer
+- src: geerlingguy.drush
+- src: geerlingguy.php-xdebug
+- src: geerlingguy.blackfire
+- src: geerlingguy.varnish
