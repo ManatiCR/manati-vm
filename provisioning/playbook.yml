@@ -31,3 +31,4 @@
     - include: tasks/extras.yml
     - include: tasks/www.yml
     - include: tasks/drush-aliases.yml
+    - include: tasks/motd.yml

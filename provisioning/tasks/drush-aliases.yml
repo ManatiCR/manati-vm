@@ -1,5 +1,4 @@
 ---
-# TODO: Deprecate legacy variable & remove shim in next major release.
 - name: Shim for legacy configure_local_drush_aliases variable.
   set_fact:
     configure_drush_aliases: "{{ configure_local_drush_aliases }}"
@@ -21,7 +20,6 @@
   become: no
   when: configure_drush_aliases and (local_drush_config_folder.stat.exists == false)
 
-# Note that this doesn't work for Windows, since Ansible's running in the VM.
 - name: Configure host machine drush aliases.
   template:
     src: ../templates/drupalvm.aliases.drushrc.php.j2

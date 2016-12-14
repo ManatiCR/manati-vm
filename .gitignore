@@ -1,5 +1,4 @@
 #.gitignore
-provision/*_vars
-npm-debug.log
+config.yml
 .vagrant/
 */.vagrant/
