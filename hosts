@@ -1,4 +1,4 @@
-10.10.10.10
+10.10.10.10 ansible_user=vagrant
 
 [local]
-10.10.10.10
+10.10.10.10 ansible_user=vagrant
