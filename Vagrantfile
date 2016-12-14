@@ -24,11 +24,7 @@ Vagrant.configure("2") do |config|
 
     dev_config.vm.provision "ansible" do |ansible|
       ansible.playbook = "./playbooks.yml"
-      ansible.extra_vars = "./group_vars/all"
-      ansible.extra_vars = "./group_vars/dev_vm"
-      # Hint: If you want to test playbooks from a certain task
-      # use the following pattern.
-      # ansible.start_at_task = "Imagemagick | Download sources"
+      ansible.extra_vars = "./vars.yml"
     end
   end
 end
