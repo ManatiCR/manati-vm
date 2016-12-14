@@ -1,4 +1,0 @@
----
-# The playbook for vim customization tasks
-
-- include: vim-customization.yml

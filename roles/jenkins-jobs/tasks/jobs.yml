@@ -1,6 +1,0 @@
----
-####
-# Jenkins Jobs
-#
-- name: Jenkins | Copy jobs
-  action: copy src=jobs/ dest=/var/lib/jenkins/jobs/ owner=jenkins group=jenkins directory_mode=0755
