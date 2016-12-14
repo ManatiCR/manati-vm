@@ -2,3 +2,4 @@
 config.yml
 .vagrant/
 */.vagrant/
+provisioning/playbook.retry

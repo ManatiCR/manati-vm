@@ -1,0 +1,54 @@
+---
+
+- name: Register apache vhosts tmp
+  set_fact:
+    servername: "{{ item }}.local.dev"
+    documentroot: "/home/vagrant/www/{{ item }}"
+    extra_parameters: |
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/home/vagrant/www/{{ item }}"
+  register: apache_vhosts_tmp
+  with_items: "{{ sites }}"
+
+- name: Register apache vhosts
+  set_fact:
+    apache_vhosts: "{{ apache_vhosts_tmp.results | map(attribute='ansible_facts') | list }}"
+
+- name: Register nginx vhosts tmp
+  set_fact:
+    server_name: "{{ item }}.local.dev"
+    root: "/home/vagrant/www/{{ item }}"
+    is_php: true
+    listen: "{{ nginx_listen_port }}"
+  register: nginx_vhosts_tmp
+  with_items: "{{ sites }}"
+
+- name: Register nginx vhosts
+  set_fact:
+    nginx_vhosts: "{{ nginx_vhosts_tmp.results | map(attribute='ansible_facts') | list }}"
+
+- name: Register temp databases
+  set_fact:
+    db: "{{ item.db }}"
+    state: "{{ item.state }}"
+    collation: "utf8_general_ci"
+    encoding: "utf8"
+  register: temp_databases
+  with_items: "{{ mysql_db_users }}"
+
+- name: Register mysql_databases
+  set_fact:
+    mysql_databases: "{{ temp_databases.results | map(attribute='ansible_facts') | list }}"
+
+- name: Register temp database users
+  set_fact:
+    name: "{{ item.user }}"
+    password: "{{ item.password }}"
+    state: "{{ item.state }}"
+    host: "%"
+    priv: "{{ item.db }}.*:ALL"
+  register: temp_users
+  with_items: "{{ mysql_db_users }}"
+
+- name: Register mysql_users
+  set_fact:
+    mysql_users: "{{ temp_users.results | map(attribute='ansible_facts') | list }}"
