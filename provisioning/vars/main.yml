@@ -46,6 +46,7 @@ php_packages:
   - php{{ php_version }}-xml
   - php-pear
   - php7.1-xml
+  - php7.1-mysql
   - libpcre3-dev
 php_conf_paths:
   - /etc/php/{{ php_version }}/fpm
