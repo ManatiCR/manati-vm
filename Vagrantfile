@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :dev do |dev_config|
 
     dev_config.ssh.forward_agent = true
+    dev_config.ssh.insert_key = false
 
     dev_config.vm.box         = "ubuntu/trusty64"
     dev_config.vm.hostname    = "manativm"
