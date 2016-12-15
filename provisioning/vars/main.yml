@@ -48,16 +48,16 @@ php_packages:
   - php7.1-xml
   - libpcre3-dev
 php_conf_paths:
-  - /etc/php{{ php_version }}/fpm
-  - /etc/php{{ php_version }}/apache2
-  - /etc/php{{ php_version }}/cli
+  - /etc/php/{{ php_version }}/fpm
+  - /etc/php/{{ php_version }}/apache2
+  - /etc/php/{{ php_version }}/cli
 php_extension_conf_paths:
-  - /etc/php{{ php_version }}/fpm/conf.d
-  - /etc/php{{ php_version }}/apache2/conf.d
-  - /etc/php{{ php_version }}/cli/conf.d
+  - /etc/php/{{ php_version }}/fpm/conf.d
+  - /etc/php/{{ php_version }}/apache2/conf.d
+  - /etc/php/{{ php_version }}/cli/conf.d
 php_fpm_daemon: php{{ php_version }}-fpm
 php_fpm_conf_path: "/etc/php{{ php_version }}/fpm"
-php_fpm_pool_conf_path: "/etc/php{{ php_version }}/fpm/pool.d/www.conf"
+php_fpm_pool_conf_path: "/etc/php/{{ php_version }}/fpm/pool.d/www.conf"
 php_mysql_package: php{{ php_version }}-mysql
 php_memcached_package: php{{ php_version }}-memcached
 php_memory_limit: "192M"
