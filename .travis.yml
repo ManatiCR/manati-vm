@@ -16,6 +16,7 @@ before_script:
   - gem install rubocop
 script:
   - 'tmpfile=$(mktemp)'
+  - 'cp example.config.yml config.yml'
   - 'docker run --detach --volume="${PWD}":"${MANATIVM_DIR}":rw ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${tmpfile}"'
   - 'container_id=$(cat ${tmpfile})'
   - 'docker exec ${container_id} ansible-galaxy install -r "$MANATIVM_DIR"/provisioning/requirements.yml --force'
