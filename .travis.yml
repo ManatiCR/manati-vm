@@ -15,7 +15,6 @@ before_script:
   # Install lint tools.
   - gem install rubocop
 script:
-  - 'npm test'
   - 'tmpfile=$(mktemp)'
   - 'docker run --detach --volume="${PWD}":"${MANATIVM_DIR}":rw ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${tmpfile}"'
   - 'container_id=$(cat ${tmpfile})'
