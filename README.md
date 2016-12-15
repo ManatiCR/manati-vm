@@ -1,7 +1,7 @@
 Manatí VM
 ========================
 
-This is a VM that contains some scripts and config files used for different deploys using vagrant+ansible playbooks.
+This is a lamp/lemp development machine. 
 
 ## Requirements
 
@@ -12,11 +12,16 @@ This is a VM that contains some scripts and config files used for different depl
 
 ## Basic Usage
 
-To bring up a simple VM (Virtual Machine) that can be used for PHP developmenet, run the next command inside the root folder:
+To bring up a simple VM (Virtual Machine) that can be used for PHP development, run the next commands inside the root folder:
 
-    vagrant up
+    sudo ansible-galaxy install -r provisioning/requirements.yml --force
+    vagrant plugin install vagrant-hostsupdater
+    
+Then, copy example.config.yml to config.yml and following instructions; edit as necessary. After that; run:
 
-If you need to provision again, run:
+    vagrant up   
+
+If you need to provision again (or have edited config.yml to add sites/databases/hosts), run:
 
     vagrant provision
 
@@ -28,16 +33,12 @@ To restart the VM:
 
     vagrant reload
 
-To use this VM, you just need to add a folder inside www (created at same level than root folder) and add your code there. Then, add a dns record in /etc/hosts for associating your_folder_name.local.dev with the VM IP (10.10.10.10). Example:
-
-    10.10.10.10  example.local.dev
 
 ## Other features
 
-This VM is shipped with apachesolr 3.6.2 (see instructions in next section), two webservers (apache and nginx), xhprof, xdebug and some other undocumented stuff.
+This VM is shipped with apachesolr, two webservers (apache and nginx), xdebug and some other undocumented stuff.
 
-In order to create a database, the VM installs mysql. With user: root, and password: password.
-This values can be changed with the variable "mysql_root_password" in group_vars/dev_vm
+In order to create a database or add a site, edit config.yml and re-run `vagrant provision`
 
 This machine uses NFS file sharing in order to share a folder that will have the sites (/www). If you have an encrypted home folder, NFS will most likely make your computer kaboom and the earth explode.
 
@@ -51,37 +52,36 @@ Therefore, it is advised to clone this repository in an unencrypted folder or if
 
 ### Apachesolr use
 
-To create a core, just use the solr-core-add.yml script (See Running Deploy Scripts). Your new solr core admin UI is available at (http://hostname.local.dev:8888/solr/core_name/admin) and it could be used by Drupal at (http://hostname.local.dev:8888/solr/core_name)
+To create a core, edit config.yml and re-run `vagrant provision`
+Solr core will be accessible at `localhost:8983/solr/<core_name>`
 
 ### Multiple Webservers
 
-By default, it's using apache as varnish backend. If you need to change it, just send `varnish_backed=nginx` in query string.
-TIP: You can use the Chrome extension ModHeader to send headers and avoid needing to use GET arguments on every request.
+By default this is the shipped configuration:
+- nginx: port 80
+- apache: port 81
+- varnish: port 82 using nginx as backend
+
+You can change those settings in config.yml file and run `vagrant provision` to apply your changes.
 
 ### Variables management
 
-Some configurations are managed by variables. You can find and change them in `/group_vars/dev_vm`
+Some configurations are managed by variables. You can find and change them in `config.yml`
 
 ## Installed Software
 
 Right now this is deploying an Ubuntu Trusty (14.04) VM.
 
 This config creates a VM with this software:
- - vim (with some customizations)
- - etckeeper
- - memcache
+ - vim
  - mysql
- - redis
- - tomcat
- - solr (3.6.2)
+ - solr
  - apache (2.4)
  - nginx
  - varnish  
- - node (most recent version)
  - php
- - ruby
- - drush (cloning from master branch)
- - imagemagick (6.9.2.4)
+ - drush (cloning from 8.x branch)
+ - Some other stuff
 
 ## Running deploy scripts
 To run a deploy script:
@@ -89,9 +89,4 @@ To run a deploy script:
     ./run-playbook deploy/script.yml
 
 You can use these scripts (located in the folder "deploy"):
- - Add DB and User in MySQL (mysql/mysql-add-db-and-user.yml)
  - Import DB (mysql/mysql-db-import.yml)
- - Solr Core Add (solr-cores/solr-core-add.yml)
- - Solr Core Delete (solr-cores/solr-core-delete.yml)
- - Varnish Disable (varnish/varnish-disable.yml)
- - Varnish Enable (varnish/varnish-enable.yml)
