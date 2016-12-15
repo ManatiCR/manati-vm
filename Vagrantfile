@@ -5,7 +5,6 @@ vconfig = YAML.load_file("#{host_vm_dir}/config.yml")
 
 Vagrant.configure('2') do |config|
   config.vm.define :dev do |dev_config|
-
     dev_config.ssh.forward_agent = true
     dev_config.ssh.insert_key = false
 
@@ -24,7 +23,8 @@ Vagrant.configure('2') do |config|
     # issues, see Vagrant site for documentation.
     dev_config.vm.network :private_network, ip: '10.10.10.10'
     dev_config.vm.synced_folder '../www', '/home/vagrant/www',
-      type: 'nfs', create: true
+      type: 'nfs',
+      create: true
 
     dev_config.vm.provision 'ansible' do |ansible|
       ansible.playbook = './provisioning/playbook.yml'
