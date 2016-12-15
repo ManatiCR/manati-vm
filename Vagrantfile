@@ -1,5 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+host_vm_dir = File.dirname(File.expand_path(__FILE__))
+vconfig = YAML.load_file("#{host_vm_dir}/config.yml")
 
 Vagrant.configure("2") do |config|
   config.vm.define :dev do |dev_config|
@@ -7,7 +9,8 @@ Vagrant.configure("2") do |config|
     dev_config.ssh.forward_agent = true
 
     dev_config.vm.box         = "ubuntu/trusty64"
-    dev_config.vm.hostname    = "local-dev"
+    dev_config.vm.hostname    = "manativm"
+    config.hostsupdater.aliases = vconfig['hostsupdater_aliases']
 
     # VirtualBox specific configuration.
     dev_config.vm.provider :virtualbox do |vb|

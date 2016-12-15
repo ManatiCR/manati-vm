@@ -27,3 +27,9 @@ nginx_listen_port: 80
 
 # It could checkout a branch or tag in drush repo.
 drush_version: master
+
+# If you want to keep hostupdater making his work.
+hostsupdater_aliases: []
+# Remove [] and add something like following to get hostsupdater working.
+#  - incae.local.dev
+#  - ttp.local.dev
