@@ -1,0 +1,25 @@
+services: docker
+env:
+  global:
+      DRUSH_BIN: drush
+      MANATIVM_DIR: /var/www/manativm
+  matrix:
+    # Defaults - Ubuntu 14.04.
+    - type: defaults
+      distro: ubuntu1404
+      init: /sbin/init
+      run_opts: "--privileged"
+before_install:
+  - 'docker pull geerlingguy/docker-${distro}-ansible:latest'
+before_script:
+  # Install lint tools.
+  - gem install rubocop
+script:
+  - 'npm test'
+  - 'tmpfile=$(mktemp)'
+  - 'docker run --detach --volume="${PWD}":"${MANATIVM_DIR}":rw ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${tmpfile}"'
+  - 'container_id=$(cat ${tmpfile})'
+  - 'docker exec ${container_id} ansible-galaxy install -r "$MDSK_DIR"/provisioning/requirements.yml --force'
+  - 'docker exec ${container_id} ansible-playbook "$MDSK_DIR"/provisioning/playbook.yml'
+  # Vagrantfile syntax check.
+  - 'rubocop ./Vagrantfile --except LineLength,Eval,MutableConstant,BlockLength'
