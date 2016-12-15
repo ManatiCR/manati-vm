@@ -22,13 +22,13 @@
   register: nginx_vhosts_tmp
   with_items: "{{ sites }}"
 
-- name: Register nginx vhosts
+- name: Register nginx hosts
   set_fact:
-    nginx_vhosts: "{{ nginx_vhosts_tmp.results | map(attribute='ansible_facts') | list }}"
+    nginx_hosts: "{{ nginx_vhosts_tmp.results | map(attribute='ansible_facts') | list }}"
 
 - name: Register temp databases
   set_fact:
-    db: "{{ item.db }}"
+    name: "{{ item.db }}"
     state: "{{ item.state }}"
     collation: "utf8_general_ci"
     encoding: "utf8"

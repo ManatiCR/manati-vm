@@ -7,7 +7,6 @@
  */
 
 {% macro alias(host, root) %}
-{%- if root not in _devtool_docroots %}
 $aliases['{{ host }}'] = array(
   'uri' => '{{ host }}',
   'root' => '{{ root }}',
@@ -15,23 +14,8 @@ $aliases['{{ host }}'] = array(
   'remote-user' => '{{ vagrant_user }}',
   'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key',
 );
-
-{% endif -%}
 {% endmacro %}
 
-{%- if drupalvm_webserver == 'apache' -%}
-  {%- for vhost in apache_vhosts -%}
-    {{ alias(vhost.servername, vhost.documentroot) }}
-    {%- if vhost.serveralias is defined -%}
-      {%- for serveralias in vhost.serveralias.split() -%}
-        {{ alias(serveralias, vhost.documentroot) }}
-      {%- endfor -%}
-    {%- endif -%}
-  {%- endfor -%}
-{%- elif drupalvm_webserver == 'nginx' -%}
-  {%- for host in nginx_hosts -%}
-    {%- for server_name in host.server_name.split() -%}
-      {{ alias(server_name, host.root) }}
-    {%- endfor -%}
-  {%- endfor -%}
-{%- endif -%}
+{%- for vhost in apache_vhosts -%}
+  {{ alias(vhost.servername, vhost.documentroot) }}
+{%- endfor -%}

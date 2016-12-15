@@ -42,8 +42,10 @@ php_packages:
   - php{{ php_version }}-dev
   - php{{ php_version }}-fpm
   - php{{ php_version }}-gd
-  - php{{ php_version }}-sqlite
+  - php{{ php_version }}-sqlite3
+  - php{{ php_version }}-xml
   - php-pear
+  - php7.1-xml
   - libpcre3-dev
 php_conf_paths:
   - /etc/php{{ php_version }}/fpm
@@ -73,6 +75,7 @@ php_fpm_listen: "127.0.0.1:9000"
 
 composer_path: /usr/bin/composer
 composer_home_path: '/home/vagrant/.composer'
+composer_global_packages: []
 
 # MySQL Configuration.
 mysql_root_password: root
@@ -106,3 +109,5 @@ solr_cores: []
 
 # Other configuration.
 known_hosts_path: ~/.ssh/known_hosts
+vagrant_user: vagrant
+vagrant_machine_name: manativm
