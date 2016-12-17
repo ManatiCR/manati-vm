@@ -6,4 +6,4 @@
     mode: 0755
     force: yes
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
-changed_when: false
+  changed_when: false
