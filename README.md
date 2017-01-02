@@ -1,7 +1,10 @@
 Manatí VM
 ========================
 
-This is a lamp/lemp development machine. 
+[![Build Status](https://travis-ci.org/ManatiCR/manati-vm.svg?branch=master)](https://travis-ci.org/ManatiCR/manati-vm)
+
+This is a lamp/lemp development machine.
+
 
 ## Requirements
 
