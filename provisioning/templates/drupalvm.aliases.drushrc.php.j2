@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Drupal VM drush aliases.
+ *
+ * @see example.aliases.drushrc.php.
+ */
+
+{% macro alias(host, root) %}
+$aliases['{{ host }}'] = array(
+  'uri' => '{{ host }}',
+  'root' => '{{ root }}',
+  'remote-host' => '{{ host }}',
+  'remote-user' => '{{ vagrant_user }}',
+  'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key',
+);
+{% endmacro %}
+
+{%- for vhost in apache_vhosts -%}
+  {{ alias(vhost.servername, vhost.documentroot) }}
+{%- endfor -%}

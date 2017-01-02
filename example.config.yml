@@ -1,0 +1,35 @@
+---
+
+sites: []
+# Remove [] and add something like following to get sites working.
+#  - site1
+#  - site2
+
+mysql_db_users: []
+# Remove [] and add something like following per db and user set.
+#  - db: "somedb"
+#    user: "someuser"
+#    password: "somepass"
+#    state: present
+
+solr_cores: []
+# Remove [] and add something like following to get solr cores working.
+#  - core1
+#  - core2
+
+# PHP Configuration. Currently-supported versions: 5.5, 5.6, 7.0.
+php_version: "5.6"
+
+varnish_listen_port: "82"
+varnish_default_backend_port: "80"
+apache_listen_port: 81
+nginx_listen_port: 80
+
+# It could checkout a branch or tag in drush repo.
+drush_version: "8.x"
+
+# If you want to keep hostupdater making his work.
+hostsupdater_aliases: []
+# Remove [] and add something like following to get hostsupdater working.
+#  - site1.local.dev
+#  - site2.local.dev

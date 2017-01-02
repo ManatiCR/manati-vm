@@ -1,4 +1,0 @@
----
-# Playbooks related to cache servers.
-
-- include: memcache.yml

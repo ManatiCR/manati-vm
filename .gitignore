@@ -1,5 +1,6 @@
 #.gitignore
-provision/*_vars
-npm-debug.log
+config.yml
 .vagrant/
 */.vagrant/
+provisioning/playbook.retry
+deploy/mysql/mysql-db-import.retry

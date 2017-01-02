@@ -1,0 +1,33 @@
+---
+- hosts: all
+  become: yes
+
+  vars_files:
+    - vars/main.yml
+    - ../config.yml
+
+  pre_tasks:
+    - include: tasks/register.yml
+    - include: tasks/init-debian.yml
+
+  roles:
+    # Essential roles.
+    - geerlingguy.git
+    - geerlingguy.apache
+    - geerlingguy.apache-php-fpm
+    - geerlingguy.nginx
+    - geerlingguy.mysql
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.composer
+    - geerlingguy.drush
+    - geerlingguy.php-xdebug
+    - geerlingguy.blackfire
+    - geerlingguy.varnish
+
+  tasks:
+    - include: tasks/sshd.yml
+    - include: tasks/extras.yml
+    - include: tasks/www.yml
+    - include: tasks/drush-aliases.yml
+    - include: tasks/motd.yml

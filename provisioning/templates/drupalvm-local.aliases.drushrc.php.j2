@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Drupal VM drush aliases.
+ *
+ * @see example.aliases.drushrc.php.
+ */
+
+{% macro alias(host, root) %}
+$aliases['{{ host }}'] = array(
+  'uri' => '{{ host }}',
+  'root' => '{{ root }}',
+);
+{% endmacro %}
+
+{%- for vhost in apache_vhosts -%}
+  {{ alias(vhost.servername, vhost.documentroot) }}
+{%- endfor -%}

@@ -1,5 +1,0 @@
----
-# The playbook for tasks related to ansible.
-
-# Ansible
-- include: ansible.yml

@@ -1,0 +1,30 @@
+---
+- name: Ensure necessary groups exist.
+  group: "name={{ item }} state=present"
+  with_items:
+    - admin
+    - dialout
+
+- name: Ensure vagrant user is in admin group.
+  user: "name={{ vagrant_user }} append=yes groups=admin"
+
+- name: Ensure www-data user is in dialout group (Debian).
+  user: "name=www-data append=yes groups=dialout"
+
+- name: Set nicer permissions on Apache log directory.
+  file:
+    path: "/var/log/{{ apache_daemon }}"
+    state: directory
+    mode: 0755
+    recurse: true
+
+- name: Copy Nginx vhosts into place.
+  template:
+    src: ../templates/nginx-vhost.conf.j2
+    dest: "{{ nginx_vhost_path }}/{{ item.server_name.split(' ')[0] }}.conf"
+    force: yes
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ nginx_hosts }}"
+  notify: restart nginx
