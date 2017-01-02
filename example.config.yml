@@ -26,7 +26,7 @@ apache_listen_port: 81
 nginx_listen_port: 80
 
 # It could checkout a branch or tag in drush repo.
-drush_version: 8.x
+drush_version: "8.x"
 
 # If you want to keep hostupdater making his work.
 hostsupdater_aliases: []
