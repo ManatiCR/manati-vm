@@ -31,5 +31,5 @@ drush_version: 8.x
 # If you want to keep hostupdater making his work.
 hostsupdater_aliases: []
 # Remove [] and add something like following to get hostsupdater working.
-#  - incae.local.dev
-#  - ttp.local.dev
+#  - site1.local.dev
+#  - site2.local.dev
