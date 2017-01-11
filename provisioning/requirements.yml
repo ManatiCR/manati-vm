@@ -25,3 +25,5 @@
   version: 1.0.0
 - src: geerlingguy.varnish
   version: 1.8.1
+- src: geerlingguy.solr
+  version: 3.4.1
