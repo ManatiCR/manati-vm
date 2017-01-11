@@ -25,6 +25,8 @@
     - geerlingguy.php-xdebug
     - geerlingguy.blackfire
     - geerlingguy.varnish
+    - geerlingguy.java
+    - geerlingguy.solr
 
   tasks:
     - include: tasks/sshd.yml
@@ -32,3 +34,6 @@
     - include: tasks/www.yml
     - include: tasks/drush-aliases.yml
     - include: tasks/motd.yml
+    - name: Run configured post-provision shell scripts.
+      script: "{{ item }}"
+      with_items: "{{ post_provision_scripts|default([]) }}"

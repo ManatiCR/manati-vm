@@ -14,3 +14,6 @@
 
 - name: Add repository for PHP
   apt_repository: repo='ppa:ondrej/php'
+
+- name: Add repository for Java
+  apt_repository: repo='ppa:openjdk-r/ppa'

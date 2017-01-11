@@ -102,8 +102,12 @@ php_xdebug_remote_connect_back: 1
 php_xdebug_idekey: PHPSTORM
 php_xdebug_max_nesting_level: 256
 
+# Java config.
+java_packages:
+  - openjdk-8-jdk
+
 # Solr Configuration (if enabled above).
-solr_version: "4.10.4"
+solr_version: "5.5.3"
 solr_xms: "64M"
 solr_xmx: "128M"
 solr_cores: []
@@ -112,3 +116,6 @@ solr_cores: []
 known_hosts_path: ~/.ssh/known_hosts
 vagrant_user: vagrant
 vagrant_machine_name: manativm
+
+post_provision_scripts:
+  - ../post-provisioning/configure-solr.sh
