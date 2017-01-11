@@ -24,6 +24,7 @@
     - geerlingguy.php-xdebug
     - geerlingguy.blackfire
     - geerlingguy.varnish
+    - geerlingguy.solr
 
   tasks:
     - include: tasks/sshd.yml
