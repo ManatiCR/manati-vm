@@ -24,6 +24,7 @@
     - geerlingguy.php-xdebug
     - geerlingguy.blackfire
     - geerlingguy.varnish
+    - geerlingguy.java
     - geerlingguy.solr
 
   tasks:
