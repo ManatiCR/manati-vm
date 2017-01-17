@@ -1,7 +1,7 @@
 ---
 
 #VM Config
-vm_ram_memory: "2048"
+vm_ram: "2048"
 vm_cpus: "2"
 
 sites: []
