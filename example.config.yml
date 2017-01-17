@@ -1,5 +1,9 @@
 ---
 
+#VM Config
+vm_ram: "2048"
+vm_cpus: "2"
+
 sites: []
 # Remove [] and add something like following to get sites working.
 #  - site1
@@ -19,6 +23,7 @@ solr_cores: []
 
 # PHP Configuration. Currently-supported versions: 5.5, 5.6, 7.0.
 php_version: "5.6"
+php_memory_limit: "256M"
 
 varnish_listen_port: "82"
 varnish_default_backend_port: "80"
