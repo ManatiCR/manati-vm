@@ -14,8 +14,8 @@ Vagrant.configure('2') do |config|
 
     # VirtualBox specific configuration.
     dev_config.vm.provider :virtualbox do |vb|
-      vb.customize ['modifyvm', :id, '--memory', '2048']
-      vb.customize ['modifyvm', :id, '--cpus', '2']
+      vb.customize ['modifyvm', :id, '--memory', vconfig['vm_ram_memory']]
+      vb.customize ['modifyvm', :id, '--cpus', vconfig['vm_cpus']]
       vb.customize ['modifyvm', :id, '--name', 'Manati Box Trusty']
     end
 

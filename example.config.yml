@@ -1,5 +1,9 @@
 ---
 
+#VM Config
+vm_ram_memory: "2048"
+vm_cpus: "2"
+
 sites: []
 # Remove [] and add something like following to get sites working.
 #  - site1
