@@ -24,6 +24,7 @@ This is a lamp/lemp development machine.
 
 - Open the `config.yml` file, follow the instructions into the file and  edit as necessary.
 
+   Be careful with this point, specifically with the **synced folder** settings, this settings is critical for the proper operation of the VM, With this setting you can specify the folder in your **local machine** that will contain the sites to sync with the VM.
 - Finally, execute:
 
       vagrant up
