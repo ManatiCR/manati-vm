@@ -7,7 +7,7 @@ vm_cpus: "2"
 #Synced Folder Config.
 
 # The local folder that will contain your sites.
-sync_folder_path: "../www"
+synced_folder_path: "../www"
 
 
 sites: []
