@@ -4,9 +4,9 @@
 vm_ram: "2048"
 vm_cpus: "2"
 
-#Sync Folder Config.
+#Synced Folder Config.
 
-# The local folder that will contains your sites.
+# The local folder that will contain your sites.
 sync_folder_path: "../www"
 
 
