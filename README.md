@@ -24,7 +24,7 @@ This is a lamp/lemp development machine.
 
 - Open the `config.yml` file, follow the instructions into the file and  edit as necessary.
 
-- Finally execute:
+- Finally, execute:
 
       vagrant up
 
@@ -46,9 +46,9 @@ To restart the VM:
 ## Importing databases.
 To import databases we have a specialized script to make your life better, just follow the instructions bellow:
 
- - Go to your Sync Folder
- - Copy your Database dump there (Sync folder path)
- - Go to your VM Root path
+ - Go to your synced folder
+ - Copy your database dump there (synced folder path)
+ - Go to your VM root path
  - Execute: `./run-playbook deploy/mysql/mysql-db-import.yml`
  - And just follow the instructions given by the script.
 ## Other features
