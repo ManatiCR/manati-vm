@@ -15,14 +15,20 @@ This is a lamp/lemp development machine.
 
 ## Basic Usage
 
-To bring up a simple VM (Virtual Machine) that can be used for PHP development, run the next commands inside the root folder:
+- To bring up a simple VM (Virtual Machine) that can be used for PHP development, run the next commands inside the root folder:
 
-    sudo ansible-galaxy install -r provisioning/requirements.yml --force
-    vagrant plugin install vagrant-hostsupdater
-    
-Then, copy example.config.yml to config.yml and following instructions; edit as necessary. After that; run:
+      sudo ansible-galaxy install -r provisioning/requirements.yml --force
+      vagrant plugin install vagrant-hostsupdater
 
-    vagrant up   
+- Go to the VM root folder and copy `example.config.yml` to `config.yml`
+
+- Open the `config.yml` file, follow the instructions into the file and  edit as necessary.
+
+- Finally, execute:
+
+      vagrant up
+
+## Useful information
 
 If you need to provision again (or have edited config.yml to add sites/databases/hosts), run:
 
@@ -37,6 +43,14 @@ To restart the VM:
     vagrant reload
 
 
+## Importing databases.
+To import databases we have a specialized script to make your life better, just follow the instructions bellow:
+
+ - Go to your synced folder
+ - Copy your database dump there (synced folder path)
+ - Go to your VM root path
+ - Execute: `./run-playbook deploy/mysql/mysql-db-import.yml`
+ - And just follow the instructions given by the script.
 ## Other features
 
 This VM is shipped with apachesolr, two webservers (apache and nginx), xdebug and some other undocumented stuff.
@@ -85,11 +99,3 @@ This config creates a VM with this software:
  - php
  - drush (cloning from 8.x branch)
  - Some other stuff
-
-## Running deploy scripts
-To run a deploy script:
-
-    ./run-playbook deploy/script.yml
-
-You can use these scripts (located in the folder "deploy"):
- - Import DB (mysql/mysql-db-import.yml)
