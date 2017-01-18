@@ -26,7 +26,7 @@ Vagrant.configure('2') do |config|
       type: 'nfs',
       create: true
     }
-    dev_config.vm.synced_folder '../www', '/home/vagrant/www', options
+    dev_config.vm.synced_folder vconfig['sync_folder_path'], '/home/vagrant/www', options
 
     dev_config.vm.provision 'ansible' do |ansible|
       ansible.playbook = './provisioning/playbook.yml'
