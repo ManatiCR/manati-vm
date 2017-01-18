@@ -4,6 +4,12 @@
 vm_ram: "2048"
 vm_cpus: "2"
 
+#Synced Folder Config.
+
+# The local folder that will contain your sites.
+synced_folder_path: "../www"
+
+
 sites: []
 # Remove [] and add something like following to get sites working.
 #  - site1
