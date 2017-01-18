@@ -99,8 +99,3 @@ This config creates a VM with this software:
  - php
  - drush (cloning from 8.x branch)
  - Some other stuff
-
-## Running deploy scripts
-To run a deploy script:
-
-    ./run-playbook deploy/script.yml
