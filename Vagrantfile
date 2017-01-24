@@ -14,8 +14,8 @@ Vagrant.configure('2') do |config|
 
     # VirtualBox specific configuration.
     dev_config.vm.provider :virtualbox do |vb|
-      vb.customize ['modifyvm', :id, '--memory', vconfig['vm_ram'] || "2048"]
-      vb.customize ['modifyvm', :id, '--cpus', vconfig['vm_cpus'] || "2"]
+      vb.customize ['modifyvm', :id, '--memory', vconfig['vm_ram'] || '2048']
+      vb.customize ['modifyvm', :id, '--cpus', vconfig['vm_cpus'] || '2']
       vb.customize ['modifyvm', :id, '--name', 'Manati Box Trusty']
     end
 
@@ -26,7 +26,7 @@ Vagrant.configure('2') do |config|
       type: 'nfs',
       create: true
     }
-    dev_config.vm.synced_folder vconfig['synced_folder_path'] || "../www", '/home/vagrant/www', options
+    dev_config.vm.synced_folder vconfig['synced_folder_path'] || '../www', '/home/vagrant/www', options
 
     dev_config.vm.provision 'ansible' do |ansible|
       ansible.playbook = './provisioning/playbook.yml'
