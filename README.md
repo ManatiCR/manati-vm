@@ -52,6 +52,7 @@ To import databases we have a specialized script to make your life better, just 
  - Go to your VM root path
  - Execute: `./run-playbook deploy/mysql/mysql-db-import.yml`
  - And just follow the instructions given by the script.
+
 ## Other features
 
 This VM is shipped with apachesolr, two webservers (apache and nginx), xdebug and some other undocumented stuff.
@@ -96,7 +97,7 @@ This config creates a VM with this software:
  - solr
  - apache (2.4)
  - nginx
- - varnish  
+ - varnish
  - php
  - drush (cloning from 8.x branch)
  - Some other stuff
