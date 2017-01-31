@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+require 'yaml'
 host_vm_dir = File.dirname(File.expand_path(__FILE__))
 vconfig = YAML.load_file("#{host_vm_dir}/config.yml")
 
