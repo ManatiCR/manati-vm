@@ -41,7 +41,7 @@ server {
         rewrite ^ /index.php;
     }
 
-    location ~ ^/sites/.*/files/styles/ {
+    location ~ /sites/.*/files/styles/ {
         try_files $uri @rewrite;
     }
 
