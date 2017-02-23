@@ -42,6 +42,7 @@ php_packages:
   - php{{ php_version }}-dev
   - php{{ php_version }}-fpm
   - php{{ php_version }}-gd
+  - php{{ php_version }}-mbstring
   - php{{ php_version }}-sqlite3
   - php{{ php_version }}-xml
   - php-pear
