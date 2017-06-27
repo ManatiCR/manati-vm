@@ -67,7 +67,7 @@ And there is no workaround for that. As per:
 
 https://docs.vagrantup.com/v2/synced-folders/nfs.html
 
-Therefore, it is advised to clone this repository in an unencrypted folder or if you're using Full Disk Encryption, your ok.
+Therefore, it is advised to clone this repository in an unencrypted folder or if you're using Full Disk Encryption, you're ok.
 
 ### Apachesolr use
 
