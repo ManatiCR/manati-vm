@@ -29,6 +29,13 @@ This is a lamp/lemp development machine.
 
       vagrant up
 
+## Known issues
+
+- Once you've built everything it is possible that your machine runs the most recent version of PHP in the cli, no matter what you wrote in the config.yml, so if you want the cli to be the same, you'll have to do it manually for example, if you want to have the cli running PHP 5.6, then you could do so by running:
+
+      vagrant ssh
+      sudo update-alternatives --set php /usr/bin/php5.6
+
 ## Useful information
 
 If you need to provision again (or have edited config.yml to add sites/databases/hosts), run:
