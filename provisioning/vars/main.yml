@@ -46,9 +46,9 @@ php_packages:
   - php{{ php_version }}-sqlite3
   - php{{ php_version }}-xml
   - php-pear
-  - php7.1-xml
-  - php7.1-mysql
-  - php7.1-mbstring
+  - php7.2-xml
+  - php7.2-mysql
+  - php7.2-mbstring
   - libpcre3-dev
 php_conf_paths:
   - /etc/php/{{ php_version }}/fpm
