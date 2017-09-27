@@ -45,6 +45,7 @@ php_packages:
   - php{{ php_version }}-mbstring
   - php{{ php_version }}-sqlite3
   - php{{ php_version }}-xml
+  - php{{ php_version }}-zip
   - php-pear
   - php7.2-xml
   - php7.2-mysql
