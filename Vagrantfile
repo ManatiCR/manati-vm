@@ -4,6 +4,18 @@ require 'yaml'
 host_vm_dir = File.dirname(File.expand_path(__FILE__))
 vconfig = YAML.load_file("#{host_vm_dir}/config.yml")
 
+# Cross-platform way of finding an executable in the $PATH.
+def which(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each do |ext|
+      exe = File.join(path, "#{cmd}#{ext}")
+      return exe if File.executable?(exe) && !File.directory?(exe)
+    end
+  end
+  nil
+end
+
 Vagrant.configure('2') do |config|
   config.vm.define :dev do |dev_config|
     dev_config.ssh.forward_agent = true
