@@ -41,9 +41,6 @@ Vagrant.configure('2') do |config|
     }
     dev_config.vm.synced_folder vconfig['synced_folder_path'] || '../www', '/home/vagrant/www', options
 
-    dev_config.vm.provision 'ansible' do |ansible|
-      ansible.playbook = './provisioning/playbook.yml'
-    end
     # Provisioning. Use ansible if it's installed, JJG-Ansible-Windows if not.
     if which('ansible-playbook')
       dev_config.vm.provision 'ansible' do |ansible|
