@@ -32,5 +32,16 @@ Vagrant.configure('2') do |config|
     dev_config.vm.provision 'ansible' do |ansible|
       ansible.playbook = './provisioning/playbook.yml'
     end
+    # Provisioning. Use ansible if it's installed, JJG-Ansible-Windows if not.
+    if which('ansible-playbook')
+      dev_config.vm.provision 'ansible' do |ansible|
+        ansible.playbook = "./provisioning/playbook.yml"
+      end
+    else
+      dev_config.vm.provision 'shell' do |sh|
+        sh.path = "./provisioning/JJG-Ansible-Windows/windows.sh"
+        sh.args = "-e ./provisioning/playbook.yml"
+      end
+    end
   end
 end
