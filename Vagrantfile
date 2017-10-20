@@ -49,7 +49,7 @@ Vagrant.configure('2') do |config|
     else
       dev_config.vm.provision 'shell' do |sh|
         sh.path = './provisioning/JJG-Ansible-Windows/windows.sh'
-        sh.args = "/vagrant/provisioning/playbook.yml"
+        sh.args = '/vagrant/provisioning/playbook.yml'
       end
     end
   end
