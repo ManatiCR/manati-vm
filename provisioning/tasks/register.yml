@@ -2,7 +2,7 @@
 
 - name: Register apache vhosts tmp
   set_fact:
-    servername: "{{ item }}.local.dev"
+    servername: "{{ item }}.local"
     documentroot: "/home/vagrant/www/{{ item }}"
     extra_parameters: |
       ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/home/vagrant/www/{{ item }}"
@@ -15,7 +15,7 @@
 
 - name: Register nginx vhosts tmp
   set_fact:
-    server_name: "{{ item }}.local.dev"
+    server_name: "{{ item }}.local"
     root: "/home/vagrant/www/{{ item }}"
     is_php: true
     listen: "{{ nginx_listen_port }}"
